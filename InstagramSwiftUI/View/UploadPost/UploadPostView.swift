@@ -65,6 +65,7 @@ extension UploadPostView {
     func loadImage() {
         guard let selectedImage = selectedImage else { return }
         postImage = Image(uiImage: selectedImage)
+        print("DEBUGGING")
     }
 }
 
