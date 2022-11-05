@@ -28,6 +28,9 @@ struct CustomTextField: View {
                     .frame(width: 20, height: 20)
                     .foregroundColor(.white)
                 TextField("", text: $text)
+                    .autocorrectionDisabled(true)
+                    .textInputAutocapitalization(.never)
+                    .keyboardType(.emailAddress)
             }
         }
     }
