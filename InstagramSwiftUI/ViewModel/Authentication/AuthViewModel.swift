@@ -10,7 +10,12 @@ import SwiftUI
 
 class AuthViewModel: ObservableObject {
     
-    @Published var userSession: FirebaseAuth.User?
+    @Published var userSession: FirebaseAuth.User? {
+        didSet {
+            fetchUser()
+        }
+    }
+    @Published var currentUser: User?
     
     static let shared = AuthViewModel()
     
@@ -50,7 +55,7 @@ class AuthViewModel: ObservableObject {
                     "fullname" : fullname,
                     "profileImageUrl" : profileImageUrl
                 ]
-                Firestore.firestore().collection("users").document(user.uid).setData(data) { _ in
+                COLLECTION_USERS.document(user.uid).setData(data) { _ in
                     print("DEBUG: Successfully uploaded user data to firestore...")
                     self.userSession = user
                 }
@@ -67,6 +72,14 @@ class AuthViewModel: ObservableObject {
         print("DEBUG: Reset password")
     }
     
-    func fetchUser() { }
+    func fetchUser() {
+        guard let currentLoggedUserUid = userSession?.uid else { return }
+        COLLECTION_USERS
+            .document(currentLoggedUserUid)
+            .getDocument { snapshot, _ in
+                guard let user = try? snapshot?.data(as: User.self) else { return }
+                self.currentUser = user
+            }
+    }
     
 }

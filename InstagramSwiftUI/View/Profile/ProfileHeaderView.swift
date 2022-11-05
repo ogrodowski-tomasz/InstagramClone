@@ -5,13 +5,17 @@
 //  Created by Tomasz Ogrodowski on 04/11/2022.
 //
 
+import Kingfisher
 import SwiftUI
 
 struct ProfileHeaderView: View {
+    
+    @ObservedObject var viewModel: ProfileViewModel
+    
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
-                Image("natsu")
+                KFImage(URL(string: viewModel.user.profileImageUrl))
                     .resizable()
                     .scaledToFill()
                     .frame(width: 80, height: 80)
@@ -28,7 +32,7 @@ struct ProfileHeaderView: View {
                 .padding(.trailing, 16)
             }
             
-            Text("Natalia Karczmarczyk")
+            Text(viewModel.user.fullname)
                 .font(.system(size: 15, weight: .semibold))
                 .padding(.leading)
                 .padding(.top, 3)
@@ -40,7 +44,7 @@ struct ProfileHeaderView: View {
             HStack {
                 Spacer()
                 
-                ProfileActionButtonView()
+                ProfileActionButtonView(viewModel: viewModel)
                 
                 Spacer()
             }
@@ -51,8 +55,8 @@ struct ProfileHeaderView: View {
 
 
 
-struct ProfileHeaderView_Previews: PreviewProvider {
-    static var previews: some View {
-        ProfileHeaderView()
-    }
-}
+//struct ProfileHeaderView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ProfileHeaderView()
+//    }
+//}

@@ -12,6 +12,8 @@ struct SearchView: View {
     @State private var searchText = ""
     @State private var inSearchMode = false
     
+    @StateObject private var viewModel = SearchViewModel()
+    
     var body: some View {
         ScrollView {
             // search bar
@@ -20,7 +22,7 @@ struct SearchView: View {
             ZStack {
                 if inSearchMode {
                     // List of searched users
-                    UserListView()
+                    UserListView(viewModel: viewModel, searchText: $searchText)
                 } else {
                     // Grid of recommended posts
                     PostGridView()

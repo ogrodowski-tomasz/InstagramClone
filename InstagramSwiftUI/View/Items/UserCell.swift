@@ -5,13 +5,15 @@
 //  Created by Tomasz Ogrodowski on 04/11/2022.
 //
 
+import Kingfisher
 import SwiftUI
 
 struct UserCell: View {
+    let user: User
     var body: some View {
         HStack {
             // Image
-            Image("muran")
+            KFImage(URL(string: user.profileImageUrl))
                 .resizable()
                 .scaledToFill()
                 .frame(width: 48, height: 48)
@@ -19,18 +21,12 @@ struct UserCell: View {
             
             // VStack -> username with fullname
             VStack(alignment: .leading) {
-                Text("stary.muran")
+                Text(user.username)
                     .font(.system(size: 14, weight: .semibold))
-                Text("Jacek Murański")
+                Text(user.fullname)
                     .font(.system(size: 14))
             }
             Spacer()
         }
-    }
-}
-
-struct UserCell_Previews: PreviewProvider {
-    static var previews: some View {
-        UserCell()
     }
 }

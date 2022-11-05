@@ -15,8 +15,10 @@ struct ContentView: View {
             if viewModel.userSession == nil {
                 LoginView()
             } else {
-                // else -> show contentView
-                MainTabView()
+                if let user = viewModel.currentUser {
+                    // else -> show contentView
+                    MainTabView(user: user)
+                }
             }
         }
     }
