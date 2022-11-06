@@ -53,6 +53,7 @@
 		1E4D7BD92917C7E10089C1CB /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4D7BD82917C7E10089C1CB /* Post.swift */; };
 		1E4D7BDB2917C89A0089C1CB /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4D7BDA2917C89A0089C1CB /* FeedViewModel.swift */; };
 		1E4D7BDD2917D2BF0089C1CB /* PostGridViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4D7BDC2917D2BF0089C1CB /* PostGridViewModel.swift */; };
+		1E4D7BDF2917E0A00089C1CB /* FeedCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4D7BDE2917E0A00089C1CB /* FeedCellViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -96,6 +97,7 @@
 		1E4D7BD82917C7E10089C1CB /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		1E4D7BDA2917C89A0089C1CB /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
 		1E4D7BDC2917D2BF0089C1CB /* PostGridViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostGridViewModel.swift; sourceTree = "<group>"; };
+		1E4D7BDE2917E0A00089C1CB /* FeedCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCellViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -304,6 +306,7 @@
 			isa = PBXGroup;
 			children = (
 				1E4D7BDA2917C89A0089C1CB /* FeedViewModel.swift */,
+				1E4D7BDE2917E0A00089C1CB /* FeedCellViewModel.swift */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
@@ -445,6 +448,7 @@
 				1E0AA49C29159AD400B2DBC4 /* UserCell.swift in Sources */,
 				1E0AA4982915972800B2DBC4 /* SearchBar.swift in Sources */,
 				1E0AA4B42915C2FF00B2DBC4 /* CustomSecureField.swift in Sources */,
+				1E4D7BDF2917E0A00089C1CB /* FeedCellViewModel.swift in Sources */,
 				1E4D7BD92917C7E10089C1CB /* Post.swift in Sources */,
 				1E46DCD92916916000BF261C /* SearchViewModel.swift in Sources */,
 				1E0AA48E2915852D00B2DBC4 /* NotificationsView.swift in Sources */,
