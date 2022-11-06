@@ -7,9 +7,11 @@
 
 import Firebase
 
+typealias FirestoreCompletion = ((Error?) -> Void)?
+
 struct UserService {
     
-    static func follow(uid: String, completion: ((Error?) -> Void)?) {
+    static func follow(uid: String, completion: FirestoreCompletion) {
         guard let currentUserUid = AuthViewModel.shared.userSession?.uid else { return }
         COLLECTION_FOLLOWING
             .document(currentUserUid)

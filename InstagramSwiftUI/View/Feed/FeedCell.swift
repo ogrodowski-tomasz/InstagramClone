@@ -5,27 +5,31 @@
 //  Created by Tomasz Ogrodowski on 04/11/2022.
 //
 
+import Kingfisher
 import SwiftUI
 
 struct FeedCell: View {
+    
+    let post: Post
+    
     var body: some View {
         VStack(alignment: .leading) {
             // Post author info
             HStack {
-                Image("natsu")
+                KFImage(URL(string: post.ownerImageUrl))
                     .resizable()
                     .scaledToFill()
                     .frame(width: 36, height: 36)
                     .cornerRadius(18)
                     .clipped()
-                Text("natalia.karczmarczyk")
+                Text(post.ownerUsername)
                     .font(.system(size: 14, weight: .semibold))
             }
             .padding([.leading, .bottom], 8)
             
             // Posted image
             
-            Image("natsu-post")
+            KFImage(URL(string: post.imageUrl))
                 .resizable()
                 .scaledToFill()
                 .frame(maxHeight: 400)
@@ -71,7 +75,7 @@ struct FeedCell: View {
             .foregroundColor(.black)
             
             // Post parameters
-            Text("2345 likes")
+            Text("\(post.likes) likes")
                 .font(.system(size: 14, weight: .semibold))
                 .padding(.leading, 8)
                 .padding(.bottom, 2)
@@ -79,12 +83,12 @@ struct FeedCell: View {
             // caption
             
             HStack {
-                Text("natalia.karczmarczyk")
+                Text(post.ownerUsername)
                     .font(.system(size: 14, weight: .semibold))
                 +
                 Text(" ")
                 +
-                Text("Hejka kochani! Już jutro nowy odcinek Natsu World!")
+                Text(post.caption)
                     .font(.system(size: 15))
             }
             .padding(.horizontal, 8)
@@ -100,8 +104,8 @@ struct FeedCell: View {
     }
 }
 
-struct FeedCell_Previews: PreviewProvider {
-    static var previews: some View {
-        FeedCell()
-    }
-}
+//struct FeedCell_Previews: PreviewProvider {
+//    static var previews: some View {
+//        FeedCell()
+//    }
+//}

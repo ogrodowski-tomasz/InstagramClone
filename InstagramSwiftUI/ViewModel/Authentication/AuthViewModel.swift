@@ -38,7 +38,7 @@ class AuthViewModel: ObservableObject {
     
     func register(withEmail email: String, fullname: String, username: String, password: String, image: UIImage?) {
         guard let image = image else { return }
-        ImageUploader.uploadImage(image: image) { profileImageUrl in
+        ImageUploader.uploadImage(image: image, type: .profile) { profileImageUrl in
             Auth.auth().createUser(withEmail: email, password: password) { result, error in
                 if let error = error {
                     print("DEBUG: Error creating user! \(error.localizedDescription)")

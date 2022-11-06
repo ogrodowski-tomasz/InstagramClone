@@ -25,7 +25,7 @@ struct SearchView: View {
                     UserListView(viewModel: viewModel, searchText: $searchText)
                 } else {
                     // Grid of recommended posts
-                    PostGridView()
+                    PostGridView(config: .explore)
                 }
             }
         }
