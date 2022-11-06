@@ -45,6 +45,7 @@ struct FeedCell: View {
             // Action buttons
             
             HStack(spacing: 15) {
+                let buttonSize: CGFloat = 20
                 Button {
                     didLike ? viewModel.unlike() : viewModel.like()
                 } label: {
@@ -52,21 +53,22 @@ struct FeedCell: View {
                         .resizable()
                         .scaledToFill()
                         .foregroundColor(didLike ? .red : .black)
-                        .frame(width: 28, height: 28)
-                        .font(.system(size: 20))
+                        .frame(width: buttonSize, height: buttonSize)
+                        .font(.system(size: buttonSize))
                         .padding(4)
                 }
                 
-                Button {
-                    print("DEBUG: Comment post")
+                NavigationLink {
+                    CommentsView(post: viewModel.post)
                 } label: {
                     Image(systemName: "bubble.right")
                         .resizable()
                         .scaledToFill()
-                        .frame(width: 28, height: 28)
-                        .font(.system(size: 20))
+                        .frame(width: buttonSize, height: buttonSize)
+                        .font(.system(size: buttonSize))
                         .padding(4)
                 }
+
                 
                 Button {
                     print("DEBUG: Shared post")
@@ -74,8 +76,8 @@ struct FeedCell: View {
                     Image(systemName: "paperplane")
                         .resizable()
                         .scaledToFill()
-                        .frame(width: 28, height: 28)
-                        .font(.system(size: 20))
+                        .frame(width: buttonSize, height: buttonSize)
+                        .font(.system(size: buttonSize))
                         .padding(4)
                 }
             }
