@@ -18,6 +18,10 @@ class NoticifationCellViewModel: ObservableObject {
         fetchNotificationUser()
     }
     
+    var timestampString: String {
+        return notification.timestamp.asAbbreviatedString()
+    }
+    
     func follow() {
         UserService.follow(uid: self.notification.uid) { _ in
             NotificationsViewModel.uploadNotification(toUid: self.notification.uid, type: .follow)

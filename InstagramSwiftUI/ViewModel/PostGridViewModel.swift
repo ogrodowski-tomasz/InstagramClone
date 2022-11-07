@@ -32,7 +32,7 @@ class PostGridViewModel: ObservableObject {
     }
     
     func fetchExplorePosts() {
-        COLLECTION_POSTS.getDocuments { snapshot, error in
+        COLLECTION_POSTS.order(by: "likes", descending: true).getDocuments { snapshot, error in
             if let error {
                 print("DEBUG: Error fetching posts: \(error)")
                 return
@@ -51,7 +51,8 @@ class PostGridViewModel: ObservableObject {
                     return
                 }
                 guard let documents = snapshot?.documents else { return }
-                self.posts = documents.compactMap { try? $0.data(as: Post.self) }
+                let posts = documents.compactMap { try? $0.data(as: Post.self) }
+                self.posts = posts.sorted { $0.timestamp.dateValue() > $1.timestamp.dateValue() }
             }
     }
     

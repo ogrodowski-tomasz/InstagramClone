@@ -38,7 +38,7 @@ struct FeedCell: View {
             KFImage(URL(string: viewModel.post.imageUrl))
                 .resizable()
                 .scaledToFit()
-                .frame(maxHeight: 400)
+                .frame(maxWidth: .infinity)
                 .clipped()
             
             // Action buttons
@@ -103,7 +103,7 @@ struct FeedCell: View {
             .padding(.horizontal, 8)
             
             // Date
-            Text("2d")
+            Text(viewModel.timestampString)
                 .font(.system(size: 14))
                 .foregroundColor(.gray)
                 .padding(.leading, 8)

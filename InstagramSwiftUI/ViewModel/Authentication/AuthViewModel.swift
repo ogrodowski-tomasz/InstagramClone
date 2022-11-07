@@ -16,6 +16,7 @@ class AuthViewModel: ObservableObject {
         }
     }
     @Published var currentUser: User?
+    @Published var didSendResetPasswordLink = false
     
     static let shared = AuthViewModel()
     
@@ -67,8 +68,15 @@ class AuthViewModel: ObservableObject {
         try? Auth.auth().signOut()
     }
     
-    func resetPassword() {
-        print("DEBUG: Reset password")
+    func resetPassword(withEmail email: String) {
+        Auth.auth().sendPasswordReset(withEmail: email) { error in
+            if let error = error {
+                print("DEBUG: Error sending link with error! \(error)")
+                return
+            }
+            print("DEBUG: Successfully sent link!")
+            self.didSendResetPasswordLink = true
+        }
     }
     
     func fetchUser() {

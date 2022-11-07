@@ -62,6 +62,9 @@
 		1E4D7BED291840960089C1CB /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4D7BEC291840960089C1CB /* Notification.swift */; };
 		1E4D7BEF291842750089C1CB /* NotificationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4D7BEE291842750089C1CB /* NotificationsViewModel.swift */; };
 		1E8B7F792918FB7B00E7EFA6 /* NoticifationCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8B7F782918FB7B00E7EFA6 /* NoticifationCellViewModel.swift */; };
+		1E8B7F7B2919160D00E7EFA6 /* LazyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8B7F7A2919160D00E7EFA6 /* LazyView.swift */; };
+		1E8B7F7D291920B400E7EFA6 /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8B7F7C291920B400E7EFA6 /* EditProfileView.swift */; };
+		1E8B7F7F291924CF00E7EFA6 /* EditProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8B7F7E291924CF00E7EFA6 /* EditProfileViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -114,6 +117,9 @@
 		1E4D7BEC291840960089C1CB /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		1E4D7BEE291842750089C1CB /* NotificationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewModel.swift; sourceTree = "<group>"; };
 		1E8B7F782918FB7B00E7EFA6 /* NoticifationCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticifationCellViewModel.swift; sourceTree = "<group>"; };
+		1E8B7F7A2919160D00E7EFA6 /* LazyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyView.swift; sourceTree = "<group>"; };
+		1E8B7F7C291920B400E7EFA6 /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
+		1E8B7F7E291924CF00E7EFA6 /* EditProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +190,7 @@
 				1E0AA4B32915C2FF00B2DBC4 /* CustomSecureField.swift */,
 				1E46DCD129168C9700BF261C /* Constans.swift */,
 				1E4D7BD62917C2490089C1CB /* TextArea.swift */,
+				1E8B7F7A2919160D00E7EFA6 /* LazyView.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -208,6 +215,7 @@
 				1E4D7BD42916C6A90089C1CB /* UploadViewModel.swift */,
 				1E4D7BDC2917D2BF0089C1CB /* PostGridViewModel.swift */,
 				1E4D7BE82917F6390089C1CB /* CommentViewModel.swift */,
+				1E8B7F7E291924CF00E7EFA6 /* EditProfileViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -224,6 +232,7 @@
 				1E0AA47B2915841B00B2DBC4 /* Profile */,
 				1E0AA47A2915841A00B2DBC4 /* UploadPost */,
 				1E0AA4812915845200B2DBC4 /* Main */,
+				1E8B7F7C291920B400E7EFA6 /* EditProfileView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -451,6 +460,7 @@
 			files = (
 				1E4D7BDB2917C89A0089C1CB /* FeedViewModel.swift in Sources */,
 				1E0AA48C2915852400B2DBC4 /* SearchView.swift in Sources */,
+				1E8B7F7B2919160D00E7EFA6 /* LazyView.swift in Sources */,
 				1E4D7BD52916C6A90089C1CB /* UploadViewModel.swift in Sources */,
 				1E0AA48A2915850C00B2DBC4 /* FeedView.swift in Sources */,
 				1E0AA49A2915990300B2DBC4 /* PostGridView.swift in Sources */,
@@ -466,11 +476,13 @@
 				1E0AA4B02915C0EF00B2DBC4 /* ResetPasswordView.swift in Sources */,
 				1E0AA4942915855300B2DBC4 /* UploadPostView.swift in Sources */,
 				1E0AA4AA2915B27100B2DBC4 /* ImagePicker.swift in Sources */,
+				1E8B7F7D291920B400E7EFA6 /* EditProfileView.swift in Sources */,
 				1E4D7BE92917F6390089C1CB /* CommentViewModel.swift in Sources */,
 				1E4D7BE52917F06B0089C1CB /* CommentCell.swift in Sources */,
 				1E4D7BD72917C2490089C1CB /* TextArea.swift in Sources */,
 				1E0AA4A42915A5B900B2DBC4 /* ProfileHeaderView.swift in Sources */,
 				1E4D7BD32916B5000089C1CB /* UserService.swift in Sources */,
+				1E8B7F7F291924CF00E7EFA6 /* EditProfileViewModel.swift in Sources */,
 				1E0AA4902915853600B2DBC4 /* ProfileView.swift in Sources */,
 				1E0AA4A62915AADF00B2DBC4 /* UserStatView.swift in Sources */,
 				1E4D7BE12917F0160089C1CB /* CommentsView.swift in Sources */,

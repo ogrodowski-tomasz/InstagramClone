@@ -21,6 +21,10 @@ class FeedCellViewModel: ObservableObject {
         return "\(post.likes) \(label)"
     }
     
+    var timestampString: String {
+        return post.timestamp.asAbbreviatedString()
+    }
+    
     func like() {
         guard let postId = post.id else { return }
         guard let currentUserUid = AuthViewModel.shared.userSession?.uid else { return }

@@ -29,9 +29,9 @@ enum NotificationType: Int, Decodable {
     
     var notificationMessage: String {
         switch self {
-        case .like: return " liked Your post."
-        case .comment: return " commented Your post."
-        case .follow: return " started following You."
+        case .like: return "liked Your post."
+        case .comment: return "commented Your post."
+        case .follow: return "started following You."
         }
     }
 }

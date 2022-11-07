@@ -16,7 +16,7 @@ class FeedViewModel: ObservableObject {
     }
     
     private func fetchPosts() {
-        COLLECTION_POSTS.getDocuments { snapshot, error in
+        COLLECTION_POSTS.order(by: "timestamp", descending: true).getDocuments { snapshot, error in
             if let error = error {
                 print("DEBUG: Error fetch feedView posts: \(error)")
                 return

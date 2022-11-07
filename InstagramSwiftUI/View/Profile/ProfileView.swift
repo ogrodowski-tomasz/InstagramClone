@@ -15,6 +15,7 @@ struct ProfileView: View {
     init(user: User) {
         self.user = user
         self._viewModel = StateObject(wrappedValue: ProfileViewModel(user: user))
+        print("DEBUG: Initialized profile view for: \(user.fullname)")
     }
     
     var body: some View {

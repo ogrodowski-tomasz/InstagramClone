@@ -27,12 +27,14 @@ struct CommentCell: View {
             
             Spacer()
             
-            Text("2m")
+            Text(comment.timestamp.asAbbreviatedString())
                 .foregroundColor(.gray)
                 .font(.system(size: 12))
         }
         .padding(.horizontal)
     }
+    
+    
 }
 
 //struct CommentCell_Previews: PreviewProvider {

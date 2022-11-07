@@ -23,10 +23,9 @@ struct NotificationCell: View {
     
     var body: some View {
         HStack {
-            
             if let user = viewModel.notification.user {
                 NavigationLink {
-                    ProfileView(user: user)
+                    LazyView(ProfileView(user: user))
                 } label: {
                     // Image
                     KFImage(URL(string: viewModel.notification.profileImageUrl))
@@ -37,12 +36,18 @@ struct NotificationCell: View {
                     
                     // Caption
                     Text(viewModel.notification.username)
-                        .font(.system(size: 14, weight: .semibold))
+                        .font(.system(size: 13, weight: .semibold))
                     +
                     Text(" ")
                     +
                     Text(viewModel.notification.type.notificationMessage)
-                        .font(.system(size: 15))
+                        .font(.system(size: 14))
+                    +
+                    Text(" ")
+                    +
+                    Text(viewModel.timestampString)
+                        .foregroundColor(.gray)
+                        .font(.system(size: 12))
                 }
 
             }
@@ -67,8 +72,8 @@ struct NotificationCell: View {
                     isFollowed ? viewModel.unfollow() : viewModel.follow()
                 } label: {
                     Text(isFollowed ? "Following" : "Follow")
-                        .font(.system(size: 15, weight: .semibold))
-                        .frame(width: 100, height: 32)
+                        .font(.system(size: 13, weight: .semibold))
+                        .frame(width: 70, height: 32)
                         .foregroundColor(isFollowed ? .black : .white)
                         .background { isFollowed ? Color.white : Color.blue }
                         .cornerRadius(5)
