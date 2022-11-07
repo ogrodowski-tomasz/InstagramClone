@@ -24,34 +24,18 @@ class FeedCellViewModel: ObservableObject {
     func like() {
         guard let postId = post.id else { return }
         guard let currentUserUid = AuthViewModel.shared.userSession?.uid else { return }
-        COLLECTION_POSTS
-            .document(postId)
-            .collection("post-likes")
-            .document(currentUserUid)
-            .setData([:]) { error in
-                if let error = error {
-                    print("DEBUG: Error setting liked post in Firebase in 'post-likes': \(error)")
-                    return
-                }
-                COLLECTION_USERS
-                    .document(currentUserUid)
-                    .collection("user-likes")
-                    .document(postId)
-                    .setData([:]) { error in
-                        if let error = error {
-                            print("DEBUG: Error setting liked post in Firebase in 'user-likes': \(error)")
-                            return
-                        }
-                        COLLECTION_POSTS
-                            .document(postId)
-                            .updateData(
-                                ["likes" : self.post.likes + 1]
-                            )
-                        
-                        self.post.didLike = true
-                        self.post.likes += 1
-                    }
+        COLLECTION_POSTS.document(postId).collection("post-likes").document(currentUserUid).setData([:]) { _ in
+            COLLECTION_USERS.document(currentUserUid).collection("user-likes").document(postId).setData([:]) { _ in
+                COLLECTION_POSTS.document(postId).updateData(
+                    ["likes" : self.post.likes + 1]
+                )
+                
+                NotificationsViewModel.uploadNotification(toUid: self.post.ownerUid, type: .like, post: self.post)
+                
+                self.post.didLike = true
+                self.post.likes += 1
             }
+        }
     }
     
     func unlike() {
@@ -60,21 +44,14 @@ class FeedCellViewModel: ObservableObject {
         guard let currentUserUid = AuthViewModel.shared.userSession?.uid else { return }
         
         COLLECTION_POSTS.document(postId).collection("post-likes").document(currentUserUid)
-            .delete { error in
-                if let error = error {
-                    print("DEBUG: Error deleting likes data: \(error)")
-                    return
-                }
-                
+            .delete { _ in
                 COLLECTION_USERS.document(currentUserUid).collection("user-likes").document(postId)
-                    .delete { error in
-                        if let error = error {
-                            print("DEBUG: Error deleting likes data: \(error)")
-                            return
-                        }
+                    .delete { _ in
                         COLLECTION_POSTS.document(postId).updateData(
-                                ["likes" : self.post.likes - 1]
-                            )
+                            ["likes" : self.post.likes - 1]
+                        )
+                        
+                        
                         
                         self.post.didLike = false
                         self.post.likes -= 1

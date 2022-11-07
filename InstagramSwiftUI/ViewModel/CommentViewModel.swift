@@ -35,9 +35,10 @@ class CommentViewModel: ObservableObject {
                 print("DEBUG: Error uploading comment to Firebase: \(error)")
                 return
             }
-            print("DEBUG: Successfully uploaded comment to Firebase")
+         
+            NotificationsViewModel.uploadNotification(toUid: self.post.ownerUid, type: .comment, post: self.post)
+            
         }
-        
     }
     
     func fetchComments() {

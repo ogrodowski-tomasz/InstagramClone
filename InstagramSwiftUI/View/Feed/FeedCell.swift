@@ -9,7 +9,6 @@ import Kingfisher
 import SwiftUI
 
 struct FeedCell: View {
-    
 
     @ObservedObject private var viewModel: FeedCellViewModel
     
@@ -38,7 +37,7 @@ struct FeedCell: View {
             
             KFImage(URL(string: viewModel.post.imageUrl))
                 .resizable()
-                .scaledToFill()
+                .scaledToFit()
                 .frame(maxHeight: 400)
                 .clipped()
             

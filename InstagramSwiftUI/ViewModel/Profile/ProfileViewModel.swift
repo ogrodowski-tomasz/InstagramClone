@@ -18,11 +18,8 @@ class ProfileViewModel: ObservableObject {
     
     func follow() {
         guard let uid = user.id else { return }
-        UserService.follow(uid: uid) { error in
-            if let error = error {
-                print("DEBUG: Error following user: \(error)")
-                return
-            }
+        UserService.follow(uid: uid) { _ in
+            NotificationsViewModel.uploadNotification(toUid: uid, type: .follow)
             self.user.isFollowed = true
         }
     }

@@ -9,9 +9,7 @@ import SwiftUI
 
 class FeedViewModel: ObservableObject {
     
-    @Published var posts = [Post]() {
-        didSet { print("DEBUG: Current number of posts: \(posts.count)") }
-    }
+    @Published var posts = [Post]() 
     
     init() {
         fetchPosts()
